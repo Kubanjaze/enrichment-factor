@@ -35,6 +35,22 @@ Where:
 - EF@K function will be reused across all classifier phases
 - pIC50 as oracle score = theoretical maximum EF — actual models will score lower
 
+## Key Concepts
+- Enrichment Factor (EF@K) — virtual screening evaluation metric
+- Oracle scoring (pIC50 as score) to establish theoretical maximum EF
+- BEDROC (alpha=20) — Boltzmann-enhanced discrimination metric for early enrichment
+- Cumulative enrichment curve vs random baseline
+
+## Verification Checklist
+- [x] EF@K constant at 1.50x for all cutoffs <= 30 compounds (theoretical maximum = 1/hit_rate)
+- [x] ef_results.csv and enrichment_curve.png saved to output/
+- [x] 30/45 actives (66.7% hit rate) at pIC50 >= 7.0 threshold
+- [x] EF bar chart shows all cutoffs at ceiling value
+
+## Risks
+- Oracle scoring is unrealistically optimistic; real models will produce lower EF values
+- High hit rate (66.7%) limits the dynamic range of EF (max = 1.50x); lower hit rates would show more differentiation
+
 ## Actual Results (v1.1)
 
 | Cutoff | K | Hits@K | EF |
